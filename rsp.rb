@@ -3,42 +3,27 @@ puts "[0] グー"
 puts "[1] チョキ"
 puts "[2] パー"
 hands = ["グー","チョキ","パー"]
-chand = rand(0..2)
-phand = gets.to_i
-while phand != 0  && phand != 1  && phand != 2 
+cpu_hand = rand(0..2)
+player_hand = gets.to_i
+while player_hand != 0  && player_hand != 1  && player_hand != 2 
   puts "入力された値が無効です"
   puts "最初はグー、じゃんけん、、"
   puts "[0] グー"
   puts "[1] チョキ"
   puts "[2] パー"
-  phand = gets.to_i
+  player_hand = gets.to_i
 end
 
-puts "あなたの手：" + hands[phand] + "    相手の手：" + hands[chand]
+puts "あなたの手：" + hands[player_hand] + "    相手の手：" + hands[cpu_hand]
 
-if phand == 0
-  if chand == 0
+if player_hand == cpu_hand
     puts "あいこです"
-  elsif chand == 1
+  elsif cpu_hand == 0 && player_hand == 2
     puts "あなたの勝ちです"
-  else 
-    puts "あなたの負けです"
-  end
-elsif phand == 1
-  if chand == 1
-    puts "あいこです"
-  elsif chand == 2
+  elsif cpu_hand == 1 && player_hand == 0
     puts "あなたの勝ちです"
-  else 
+  elsif cpu_hand == 2 && player_hand == 1
+    puts "あなたの勝ちです" 
+  else
     puts "あなたの負けです"
-  end
-else phand == 2
-  if chand == 2
-    puts "あいこです"
-  elsif chand == 0
-    puts "あなたの勝ちです"
-  else 
-    puts "あなたの負けです"
-  end
 end
-
